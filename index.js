@@ -18,15 +18,7 @@ app.use((req, res, next) => {
 })
 
 
-app.use("/images", express.static(path.join(__dirname, "images")));
-
-app.get("/images/:filename", (req, res, next) => {
-  try {
-    res.sendFile(path.join(__dirname, "images", req.params.filename));
-  } catch (error) {
-    next(error);
-  }
-});
+app.use(express.static(path.join(__dirname, "images")));
 
 app.use(express.static(path.join(__dirname, "build")));
 
